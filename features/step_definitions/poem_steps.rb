@@ -44,3 +44,8 @@ Then(/^they're arranged chronologically$/) do
   dates = all('time').collect(&:text).map{|e| e.to_date}
   expect(dates).to eq dates.sort.reverse
 end
+
+When(/^I select a poem to read$/) do
+  @poem = Poem.all.sample
+  click_on(@poem.title)
+end
