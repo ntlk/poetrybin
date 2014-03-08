@@ -6,6 +6,8 @@ gem 'pg'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 
+gem 'haml-rails'
+
 group :test do
   gem 'rspec-rails'
   gem 'cucumber-rails', require: false
