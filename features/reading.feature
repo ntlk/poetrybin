@@ -3,15 +3,16 @@ Feature: reading poems
   I want to be able to read poems
   so I can enjoy them
 
-  @wip
   Scenario: read a random poem
-    Given some poems exists
+    Given some poems exist
     When I go to the home page
     Then I see one of the poems
 
   Scenario: see a list of all poems
+    Given some poems exist
     When I go to the poems list
-    Then I see a list of all the poem titles or excerpts arranged chronologically
+    Then I see a list of all the poem titles or excerpts
+      And they're arranged chronologically
 
   Scenario: read a specific poem
     Given a poem exists
