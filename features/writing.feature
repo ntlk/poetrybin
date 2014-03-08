@@ -4,13 +4,13 @@ Feature: writing poems
   so I can share it anonymously
 
   Scenario: create a new poem
-    when I go to new poem page
-    then I can add a title
-      and body text with basic formatting
-      and save it
+    When I go to new poem page
+    Then I can add a title
+      And body text with basic formatting
+      And save it
 
   Scenario: edit existing poem
-    given that I have created a poem in the last 15 minutes
-    when I go to edit poem page
-    then I can edit the title and body
+    Given that I have created a poem in the last 15 minutes
+    When I go to edit poem page
+    Then I can edit the title and body
 

@@ -4,17 +4,17 @@ Feature: logging in
   so I can combat spam
 
   Scenario: loggin in
-    given that I know the login url
-    when I visit it I can input my credentials
-    then I am logged in
-      and can hide and unhide poems
-      and can see hidden poems
+    Given that I know the login url
+    When I visit it I can input my credentials
+    Then I am logged in
+      And can hide and unhide poems
+      And can see hidden poems
 
   Scenario: logging out
-    given that I am logged in as an admin
-    when I log out
-    then I am logged out
-      and cannot hide and unhide poems
-      and cannot see hidden poems
+    Given that I am logged in as an admin
+    When I log out
+    Then I am logged out
+      And cannot hide and unhide poems
+      And cannot see hidden poems
 
 
