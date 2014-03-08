@@ -5,7 +5,7 @@ class PoemsController < ApplicationController
   end
 
   def random
-    @poem = Poem.first(order: 'RANDOM()')
+    @poem = Poem.order('RANDOM()').first
     render :show
   end
 
