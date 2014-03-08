@@ -47,7 +47,9 @@ Feature: writing poems
 
   Scenario: create a new poem
     when I go to new poem page
-    then I can add a title, body text with basic formatting, and save it
+    then I can add a title
+      and body text with basic formatting
+      and save it
 
   Scenario: edit existing poem
     given that I have created a poem in the last 15 minutes
@@ -62,12 +64,16 @@ Feature: logging in
   Scenario: loggin in
     given that I know the login url
     when I visit it I can input my credentials
-    then I can hide and unhide poems
+    then I am logged in
+      and can hide and unhide poems
+      and can see hidden poems
 
   Scenario: logging out
     given that I am logged in as an admin
     when I log out
-    then I can no longer hide and unhide poems
+    then I am logged out
+      and cannot hide and unhide poems
+      and cannot see hidden poems
 
 Feature: deleting poems
   as an admin
@@ -77,12 +83,14 @@ Feature: deleting poems
   Scenario: hide poems
     given that I am logged in as an admin
     when I select multiple poems
-    then they are marked as hidden and removed from view
+    then they are marked as hidden
+      and removed from view
 
   Scenario: unhide poems
     given that I am logged in as an admin
     when I select previously hidden poems
-    then they are unmarked as hidden and visible again
+    then they are unmarked as hidden
+      and they are visible again
 
   Scenario: delete poems
     given that poems have been marked as hidden
