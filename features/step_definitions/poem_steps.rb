@@ -2,8 +2,9 @@ When(/^I go to the home page$/) do
   visit root_path
 end
 
-Given(/^some poems exists$/) do
-  Poem.create(title: 'A poem', body: 'Violets are red')
+Given(/^some poems exist$/) do
+  Poem.create(title: 'Another poem', body: 'Text', created_at: Date.tomorrow)
+  Poem.create(title: 'A poem', body: 'Violets are red', created_at: 10.minutes.ago)
   Poem.create(title: 'A poem two', body: 'Violets are blue')
 end
 
@@ -26,4 +27,20 @@ Then(/^I can read it in full$/) do
   expect(page).to have_content(@poem.title)
   expect(page).to have_content(@poem.body)
   expect(page).to have_content(@poem.created_at)
+end
+
+When(/^I go to the poems list$/) do
+  visit poems_path
+end
+
+Then(/^I see a list of all the poem titles or excerpts$/) do
+  Poem.all.each do |poem|
+    expect(page).to have_link(poem.title, href: poem_path(poem))
+    expect(page).to have_content(poem.created_at)
+  end
+end
+
+Then(/^they're arranged chronologically$/) do
+  dates = all('time').collect(&:text).map{|e| e.to_date}
+  expect(dates).to eq dates.sort.reverse
 end
