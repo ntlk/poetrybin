@@ -1,0 +1,17 @@
+Feature: reading poems
+  as a reader
+  I want to be able to read poems
+  so I can enjoy them
+
+Feature: writing poems
+  as a poet
+  I want to write and save a poem
+  so I can share it anonymously
+
+Feature: deleting poems
+  as an admin
+  I want to be able to delete poems
+  to combat spam
+
+
+
