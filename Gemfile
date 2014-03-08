@@ -8,4 +8,5 @@ gem 'uglifier', '>= 1.3.0'
 
 group :test do
   gem 'rspec-rails'
+  gem 'cucumber-rails'
 end

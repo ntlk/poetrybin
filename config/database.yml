@@ -4,8 +4,11 @@ development:
   pool: 5
   timeout: 5000
 
-test:
+test: &test
   adapter: postgresql
   database: poetrybin_test
   pool: 5
   timeout: 5000
+
+cucumber:
+  <<: *test
