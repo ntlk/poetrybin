@@ -97,6 +97,3 @@ Feature: deleting poems
     when 7 days passed
     then they are permanently deleted
 
-
-
-
