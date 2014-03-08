@@ -4,10 +4,9 @@ Feature: writing poems
   so I can share it anonymously
 
   Scenario: create a new poem
-    When I go to new poem page
-    Then I can add a title
-      And body text with basic formatting
-      And save it
+    Given that I'm on the new poem page
+    When I type in a poem
+    Then it appears on the site
 
   Scenario: edit existing poem
     Given that I have created a poem in the last 15 minutes

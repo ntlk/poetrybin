@@ -13,4 +13,12 @@ class PoemsController < ApplicationController
     render :show
   end
 
+  def new
+    @poem = Poem.new
+  end
+
+  def create
+    @poem = Poem.create(params.require(:poem).permit(:title, :body))
+    redirect_to poem_path(@poem)
+  end
 end
