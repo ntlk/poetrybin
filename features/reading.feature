@@ -20,8 +20,9 @@ Feature: reading poems
     Then I can read it in full
 
   Scenario: finding a poem
-    Given that I see a poem I want to read on the list pgae
-    When I select it
+    Given some poems exist
+      And I go to the poems list
+    When I select a poem to read
     Then I can read it in full
 
 
