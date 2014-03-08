@@ -54,6 +54,21 @@ Feature: writing poems
     when I go to edit poem page
     then I can edit the title and body
 
+Feature: logging in
+  as an admin
+  I want to be able to log in
+  so I can combat spam
+
+  Scenario: loggin in
+    given that I know the login url
+    when I visit it I can input my credentials
+    then I can hide and unhide poems
+
+  Scenario: logging out
+    given that I am logged in as an admin
+    when I log out
+    then I can no longer hide and unhide poems
+
 Feature: deleting poems
   as an admin
   I want to be able to delete poems
