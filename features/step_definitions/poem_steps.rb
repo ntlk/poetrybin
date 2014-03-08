@@ -10,9 +10,7 @@ end
 
 Then(/^I see one of the poems$/) do
   poem = Poem.find_by_title(find('.title').text)
-  expect(page).to have_content(poem.title)
-  expect(page).to have_content(poem.body)
-  expect(page).to have_content(poem.created_at)
+  expect_page_to_have_poem(poem)
 end
 
 Given(/^a poem exists$/) do
@@ -24,9 +22,7 @@ When(/^I go straight to poem's individual page$/) do
 end
 
 Then(/^I can read it in full$/) do
-  expect(page).to have_content(@poem.title)
-  expect(page).to have_content(@poem.body)
-  expect(page).to have_content(@poem.created_at)
+  expect_page_to_have_poem(@poem)
 end
 
 When(/^I go to the poems list$/) do
