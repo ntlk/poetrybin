@@ -4,9 +4,10 @@ Feature: exploring the site
   so I can discover what I can do with poetrybin
 
   Scenario: discovering poems list
-    Given that I am currently on any page
+    Given a poem exists
+      And I am currently on any page
     When I click on poems list link
-    Then I see the list of all poems
+    Then I see a list of all poems
 
   Scenario: discovering a random poem
     Given that I am currently on any page
