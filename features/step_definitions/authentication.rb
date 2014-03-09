@@ -17,6 +17,12 @@ Given(/^that I am logged in as an admin$/) do
   click_on('Log in')
 end
 
+When(/^I input invalid credentials$/) do
+  visit new_session_path
+  fill_in('Password', with: 'pa$$word')
+  click_on('Log in')
+end
+
 When(/^I log out$/) do
   click_on('Logout')
 end
