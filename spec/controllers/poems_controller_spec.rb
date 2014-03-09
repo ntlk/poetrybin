@@ -6,7 +6,8 @@ describe PoemsController do
     @poem = Poem.create(title: 'My poem', body: 'Violets are blue')
   end
 
-  it 'does not hide a poem if person is not logged in' do
+  it 'does not hide a poem if person is not logged in', focus: true do
+    controller.stub(logged_in?: false)
     put :hide, {id: @poem.id}
     @poem.reload
 
@@ -14,14 +15,11 @@ describe PoemsController do
   end
 
   it 'does hide a poem when person is an admin' do
-    login_as_admin
+    controller.stub(logged_in?: true)
     put :hide, {id: @poem.id}
     @poem.reload
 
     expect(@poem).to be_hidden
   end
 
-  def login_as_admin
-    session[:admin] = true
-  end
 end
