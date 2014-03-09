@@ -1,7 +1,7 @@
 class PoemsController < ApplicationController
 
   def index
-    @poems = Poem.where(hidden: false).order('created_at DESC')
+    @poems = Poem.visible.order('created_at DESC')
   end
 
   def show
@@ -9,7 +9,7 @@ class PoemsController < ApplicationController
   end
 
   def random
-    @poem = Poem.where(hidden: false).order('RANDOM()').first
+    @poem = Poem.visible.order('RANDOM()').first
     render :show
   end
 
