@@ -15,7 +15,7 @@
     <li><%= link_to 'See all poems', poems_path %></li>
     <li><%= link_to 'Random', random_path %></li>
     <li><%= link_to 'Add a poem', new_poem_path %></li>
-    <% if session[:admin] %>
+    <% if logged_in? %>
       <li><%= link_to 'Logout', logout_path, method: 'PUT' %></li>
     <% end %>
   </ul>
