@@ -2,3 +2,5 @@
   .poem-list__item
     %time.poem-list__date= poem.created_at
     .poem-list__link= link_to poem.title, poem_path(poem)
+    - if session[:admin]
+      = link_to 'Hide', poem_path(poem)
