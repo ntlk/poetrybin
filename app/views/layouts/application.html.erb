@@ -16,7 +16,7 @@
     <li><%= link_to 'Random', random_path %></li>
     <li><%= link_to 'Add a poem', new_poem_path %></li>
     <% if logged_in? %>
-      <li><%= link_to 'Logout', logout_path, method: 'PUT' %></li>
+      <li><%= link_to 'Logout', session_path, method: 'DELETE' %></li>
     <% end %>
   </ul>
 </nav>

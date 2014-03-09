@@ -1,8 +1,6 @@
 Poetrybin::Application.routes.draw do
   resources :poems
   get 'random', to: 'poems#random'
-  get 'admin_access', to: 'sessions#login'
-  post 'admin_access', to: 'sessions#check_password'
-  put 'logout', to: 'sessions#logout'
+  resource :session, only: [:new, :create, :destroy]
   root to: 'poems#random'
 end
