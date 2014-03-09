@@ -1,4 +1,4 @@
-class AuthenticationController < ApplicationController
+class SessionsController < ApplicationController
 
   def login
   end
