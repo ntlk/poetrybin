@@ -11,6 +11,14 @@ require 'cucumber/rails'
 # selectors in your step definitions to use the XPath syntax.
 # Capybara.default_selector = :xpath
 
+# Disable the Rack::Test driver's data-method magic so that JavaScript-dependent
+# tests actually need a driver that supports JavaScript. If we don't do this, we'll
+# get features passing even though they don't actually work in a browser (!).
+# See https://github.com/jnicklas/capybara/issues/184 for more.
+Capybara.register_driver :rack_test do |app|
+  Capybara::RackTest::Driver.new(app, respect_data_method: false)
+end
+
 # By default, any exception happening in your Rails application will bubble up
 # to Cucumber so that your scenario will fail. This is a different from how 
 # your application behaves in the production environment, where an error page will 
