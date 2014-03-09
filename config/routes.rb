@@ -3,5 +3,6 @@ Poetrybin::Application.routes.draw do
   get 'random', to: 'poems#random'
   get 'admin_access', to: 'authentication#login'
   post 'admin_access', to: 'authentication#check_password'
+  put 'logout', to: 'authentication#logout'
   root to: 'poems#random'
 end

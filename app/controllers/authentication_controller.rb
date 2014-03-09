@@ -10,4 +10,9 @@ class AuthenticationController < ApplicationController
     redirect_to poems_path
   end
 
+  def logout
+    session.destroy
+    redirect_to poems_path
+  end
+
 end
