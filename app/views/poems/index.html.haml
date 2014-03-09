@@ -3,4 +3,4 @@
     %time.poem-list__date= poem.created_at
     .poem-list__link= link_to poem.title, poem_path(poem)
     - if logged_in?
-      = link_to 'Hide', hide_poem_path(poem), method: 'PUT'
+      = button_to 'Hide', hide_poem_path(poem), method: :put
