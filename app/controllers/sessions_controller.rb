@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if params[:password] == ENV['PASSWORD']
+    if params[:password] == ADMIN_PASSWORD
       session[:admin] = true
     end
     redirect_to poems_path
