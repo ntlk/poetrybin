@@ -23,7 +23,7 @@ class PoemsController < ApplicationController
   end
 
   def hide
-    if session[:admin]
+    if logged_in?
       @poem = Poem.find(params[:id])
       @poem.update_attribute(:hidden, true)
     end
