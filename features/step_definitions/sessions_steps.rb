@@ -8,7 +8,7 @@ When(/^I input my credentials$/) do
 end
 
 Then(/^I am logged in$/) do
-  expect(page).to have_link('Logout')
+  expect(page).to have_button('Logout')
 end
 
 Given(/^that I am logged in as an admin$/) do
