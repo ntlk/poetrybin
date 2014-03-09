@@ -13,4 +13,8 @@ Feature: logging in
     When I log out
     Then I am logged out
 
+  Scenario: logging in with the wrong password
+    Given that I'm on the login page
+    When I input invalid credentials
+    Then I am logged out
 
