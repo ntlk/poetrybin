@@ -9,7 +9,7 @@ class PoemsController < ApplicationController
   end
 
   def random
-    @poem = Poem.visible.order('RANDOM()').first
+    @poem = Poem.visible.random.first
     render :show
   end
 
