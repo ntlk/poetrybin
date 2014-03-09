@@ -1,7 +1,7 @@
 class PoemsController < ApplicationController
 
   def index
-    @poems = Poem.visible.order('created_at DESC')
+    @poems = Poem.visible.newest_first
   end
 
   def show
