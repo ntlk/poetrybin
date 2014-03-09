@@ -29,7 +29,7 @@ When(/^I go to the poems list$/) do
   visit poems_path
 end
 
-Then(/^I see a list of all the poem titles or excerpts$/) do
+Then(/^I see a list of all poems$/) do
   Poem.all.each do |poem|
     expect(page).to have_link(poem.title, href: poem_path(poem))
     expect(page).to have_content(poem.created_at)
