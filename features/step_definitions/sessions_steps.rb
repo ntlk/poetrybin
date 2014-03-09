@@ -3,7 +3,7 @@ Given(/^that I'm on the login page$/) do
 end
 
 When(/^I input my credentials$/) do
-  fill_in('Password', with: ENV['PASSWORD'])
+  fill_in('Password', with: ADMIN_PASSWORD)
   click_on('Log in')
 end
 
@@ -13,7 +13,7 @@ end
 
 Given(/^that I am logged in as an admin$/) do
   visit new_session_path
-  fill_in('Password', with: ENV['PASSWORD'])
+  fill_in('Password', with: ADMIN_PASSWORD)
   click_on('Log in')
 end
 
