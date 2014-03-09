@@ -11,7 +11,7 @@ Feature: reading poems
   Scenario: see a list of all poems
     Given some poems exist
     When I go to the poems list
-    Then I see a list of all the poem titles or excerpts
+    Then I see a list of all poems
       And they're arranged chronologically
 
   Scenario: read a specific poem
