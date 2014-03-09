@@ -1,5 +1,9 @@
 Poetrybin::Application.routes.draw do
-  resources :poems
+  resources :poems do
+    member do
+      put 'hide'
+    end
+  end
   get 'random', to: 'poems#random'
   resource :session, only: [:new, :create, :destroy]
   root to: 'poems#random'

@@ -3,11 +3,13 @@ Feature: deleting poems
   I want to be able to delete poems
   to combat spam
 
+  Background:
+    Given a poem exists
+
   Scenario: hide poems
     Given that I am logged in as an admin
-    When I select multiple poems
-    Then they are marked as hidden
-      And removed from view
+    When I hide a poem
+    Then the poem is removed from view
 
   Scenario: unhide poems
     Given that I am logged in as an admin
