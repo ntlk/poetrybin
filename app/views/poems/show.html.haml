@@ -1,3 +1,4 @@
-.title= @poem.title
-= @poem.body
-= @poem.created_at
+- if @poem
+  .title= @poem.title
+  = @poem.body
+  = @poem.created_at
