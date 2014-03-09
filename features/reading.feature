@@ -8,6 +8,11 @@ Feature: reading poems
     When I go to the home page
     Then I see one of the poems
 
+  Scenario: reading random poems never brings up hidden ones
+    Given some poems that include hidden ones exist
+    When I go to the home page
+    Then I never see a hidden one
+
   Scenario: see a list of all poems
     Given some poems exist
     When I go to the poems list
