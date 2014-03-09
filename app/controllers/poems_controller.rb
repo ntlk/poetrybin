@@ -23,8 +23,10 @@ class PoemsController < ApplicationController
   end
 
   def hide
-    @poem = Poem.find(params[:id])
-    @poem.update_attribute(:hidden, true)
+    if session[:admin]
+      @poem = Poem.find(params[:id])
+      @poem.update_attribute(:hidden, true)
+    end
     redirect_to poems_path
   end
 end
