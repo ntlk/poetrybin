@@ -16,7 +16,7 @@
     <li><%= link_to 'Random', random_path %></li>
     <li><%= link_to 'Add a poem', new_poem_path %></li>
     <% if session[:admin] %>
-      <li><%= link_to 'Logout', new_poem_path %></li>
+      <li><%= link_to 'Logout', logout_path, method: 'PUT' %></li>
     <% end %>
   </ul>
 </nav>
