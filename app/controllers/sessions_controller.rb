@@ -1,16 +1,16 @@
 class SessionsController < ApplicationController
 
-  def login
+  def new
   end
 
-  def check_password
+  def create
     if params[:password] == ENV['PASSWORD']
       session[:admin] = true
     end
     redirect_to poems_path
   end
 
-  def logout
+  def destroy
     session.destroy
     redirect_to poems_path
   end
