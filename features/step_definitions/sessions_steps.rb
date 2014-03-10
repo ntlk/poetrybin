@@ -3,17 +3,17 @@ Given(/^that I'm on the login page$/) do
 end
 
 When(/^I input my credentials$/) do
-  fill_in('Password', with: ENV['PASSWORD'])
+  fill_in('Password', with: ADMIN_PASSWORD)
   click_on('Log in')
 end
 
 Then(/^I am logged in$/) do
-  expect(page).to have_link('Logout')
+  expect(page).to have_button('Logout')
 end
 
 Given(/^that I am logged in as an admin$/) do
   visit new_session_path
-  fill_in('Password', with: ENV['PASSWORD'])
+  fill_in('Password', with: ADMIN_PASSWORD)
   click_on('Log in')
 end
 
