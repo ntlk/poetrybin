@@ -54,4 +54,43 @@ describe Formatter do
     end
   end
 
+  context 'bold text' do
+    it 'should not add strong tags in a plain string' do
+      string = 'Just a plain string'
+      formatter = Formatter.new(string)
+      expect(formatter.insert_strong_tags).to eq string
+    end
+
+    it 'should not add string tags if there is only one asterisk' do
+      string = 'A string with an * in it'
+      formatter = Formatter.new(string)
+      expect(formatter.insert_strong_tags).to eq string
+    end
+
+    it 'should not add string tags if there are only two asterisks' do
+      string = 'A string with ** in it'
+      formatter = Formatter.new(string)
+      expect(formatter.insert_strong_tags).to eq string
+    end
+
+    it 'should not add string tags if there is no word inside asterisks' do
+      string = 'A string with a **** in it'
+      formatter = Formatter.new(string)
+      expect(formatter.insert_strong_tags).to eq string
+    end
+
+    it 'should do nothing if asterisks do not surround a word or phrase' do
+      string = 'Well this **time they are pla**ced incorrectly'
+      formatter = Formatter.new(string)
+      expect(formatter.insert_strong_tags).to eq string
+    end
+
+    it 'should wrap in strong tags text surrounded by double asterisks' do
+      string = 'A **well formatted** string'
+      formatter = Formatter.new(string)
+      expect(formatter.insert_strong_tags).to eq 'A <strong>well formatted</strong> string'
+    end
+
+  end
+
 end
