@@ -91,6 +91,13 @@ describe Formatter do
       expect(formatter.insert_strong_tags).to eq 'A <strong>well formatted</strong> string'
     end
 
+    it 'should deal with multiple matches' do
+      pending
+      string = 'A **well** formatted **string**'
+      formatter = Formatter.new(string)
+      expect(formatter.insert_strong_tags).to eq 'A <strong>well</strong> formatted <strong>string</strong>'
+    end
+
   end
 
 end
