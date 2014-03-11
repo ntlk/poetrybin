@@ -15,6 +15,11 @@ class Formatter
     return @string
   end
 
+  def insert_strong_tags
+    @string.gsub!(/\s(\*{2}\b)([^*]*)(\b\*{2})\s/, ' <strong>\2</strong> ')
+    return @string
+  end
+
   private
 
   def escape_ampersands
