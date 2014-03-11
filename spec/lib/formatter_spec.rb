@@ -40,4 +40,18 @@ describe Formatter do
     end
   end
 
+  context 'handling new lines' do
+    it 'should not insert breaks when new lines are not present' do
+      string = 'An example string with no newlines'
+      formatter = Formatter.new(string)
+      expect(formatter.insert_line_breaks).to eq string
+    end
+
+    it 'should insert line breaks if newline characters are present' do
+      string = "An example\nwith a new line \n and another"
+      formatter = Formatter.new(string)
+      expect(formatter.insert_line_breaks).to eq 'An example<br>with a new line <br> and another'
+    end
+  end
+
 end
