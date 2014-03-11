@@ -10,6 +10,11 @@ class Formatter
     return @string
   end
 
+  def insert_line_breaks
+    @string.gsub!(/\n/, '<br>')
+    return @string
+  end
+
   private
 
   def escape_ampersands
