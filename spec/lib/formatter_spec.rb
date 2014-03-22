@@ -79,23 +79,22 @@ describe Formatter do
       expect(formatter.insert_strong_tags).to eq string
     end
 
-    it 'should do nothing if asterisks do not surround a word or phrase' do
-      string = 'Well this **time they are pla**ced incorrectly'
-      formatter = Formatter.new(string)
-      expect(formatter.insert_strong_tags).to eq string
-    end
-
     it 'should wrap in strong tags text surrounded by double asterisks' do
       string = 'A **well formatted** string'
       formatter = Formatter.new(string)
       expect(formatter.insert_strong_tags).to eq 'A <strong>well formatted</strong> string'
     end
 
-    it 'should deal with multiple matches' do
-      pending
-      string = 'A **well** formatted **string**'
+    it 'should wrap in strong tags text surrounded by double asterisks even when there is an asterisk in the middle' do
+      string = 'A **well fo*rmatted** string'
       formatter = Formatter.new(string)
-      expect(formatter.insert_strong_tags).to eq 'A <strong>well</strong> formatted <strong>string</strong>'
+      expect(formatter.insert_strong_tags).to eq 'A <strong>well fo*rmatted</strong> string'
+    end
+
+    it 'should deal with multiple matches' do
+      string = '**A** **well for**matted **string**'
+      formatter = Formatter.new(string)
+      expect(formatter.insert_strong_tags).to eq '<strong>A</strong> <strong>well for</strong>matted <strong>string</strong>'
     end
 
   end
