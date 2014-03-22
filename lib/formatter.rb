@@ -5,7 +5,7 @@ module Formatter
     string = change_text_sizes(string)
     string = insert_line_breaks(string)
     string = insert_strong_tags(string)
-    insert_em_tags(string)
+    insert_em_tags(string).html_safe
   end
 
   def self.escape_html(string)
