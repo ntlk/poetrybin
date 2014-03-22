@@ -1,5 +1,12 @@
 class Formatter
 
+  def self.format(string)
+    string = escape_html(string)
+    string = insert_line_breaks(string)
+    string = insert_strong_tags(string)
+    string = insert_em_tags(string)
+  end
+
   def self.escape_html(string)
     escape_angle_brackets(escape_ampersands(string))
   end
