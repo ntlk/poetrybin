@@ -13,6 +13,7 @@ module Formatter
   end
 
   def self.change_text_sizes(string)
+    string = format_small_size(string)
     string = format_medium_size(string)
     string = format_large_size(string)
     format_largest_size(string)
@@ -46,6 +47,10 @@ module Formatter
 
   def self.escape_right_angle_bracket(string)
     string.gsub('>', '&gt;')
+  end
+
+  def self.format_small_size(string)
+    string.gsub(/^####(?!#)\s?(.+$)/, '<span class="size-four">\1</span>')
   end
 
   def self.format_medium_size(string)
