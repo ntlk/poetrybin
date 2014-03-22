@@ -14,16 +14,12 @@ end
 
 When(/^I type in a poem with formatting$/) do
   fill_in('Title', with: 'A title')
-  fill_in('Poem', with: 'Some poem body\nwith some formatting\n**bold** text\n*italics*\n# and font\n## sizes')
+  fill_in('Poem', with: "Some poem body\nwith some formatting\n**bold** text\n*italics*\n# and font\n## sizes\n### sizes\n#### sizes")
   click_on('Save')
 end
 
 Then(/^it appears on the site with formatting$/) do
-  expect(page).to have_content('Some poem body<br>with some formatting<br>')
-  expect(page).to have_content('<strong>bold</strong> text')
-  expect(page).to have_content('<em>italics</em>')
-  expect(page).to have_content('<span class="size-one">and font</span>')
-  expect(page).to have_content('<span class="size-two">sizes</span>')
+  expect(page.html).to include('Some poem body<br>with some formatting<br><strong>bold</strong> text<br><em>italics</em><br><span class="size-largest">and font</span><br><span class="size-large">sizes</span><br><span class="size-medium">sizes</span><br><span class="size-small">sizes</span>')
 end
 
 When(/^I type in a poem with html$/) do
@@ -33,5 +29,5 @@ When(/^I type in a poem with html$/) do
 end
 
 Then(/^it appears on the site with html tags escaped$/) do
-  expect(page).to have_content('Some poem body &lt;strong&gt;with html&lt;/strong&gt;')
+  expect(page.html).to include('Some poem body &lt;strong&gt;with html&lt;/strong&gt;')
 end
