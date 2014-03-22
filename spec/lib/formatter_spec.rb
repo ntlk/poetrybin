@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Formatter do
 
   it 'formats a string' do
-    string = "Some poem body\nwith some formatting\n**bold** text\n*italics*\n# and font\n## sizes"
-    expect(Formatter.format(string)).to eq 'Some poem body<br>with some formatting<br><strong>bold</strong> text<br><em>italics</em><br><span class="size-one">and font</span><br><span class="size-two">sizes</span>'
+    string = "Some poem body\nwith some formatting\n**bold** text\n*italics*\n# and font\n## sizes\n### sizes\n#### sizes"
+    expect(Formatter.format(string)).to eq 'Some poem body<br>with some formatting<br><strong>bold</strong> text<br><em>italics</em><br><span class="size-largest">and font</span><br><span class="size-large">sizes</span><br><span class="size-medium">sizes</span><br><span class="size-small">sizes</span>'
   end
 
   context 'escaping html' do
