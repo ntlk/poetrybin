@@ -1,4 +1,4 @@
-class Formatter
+module Formatter
 
   def self.format(string)
     string = escape_html(string)
