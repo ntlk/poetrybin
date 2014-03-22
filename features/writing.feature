@@ -13,7 +13,6 @@ Feature: writing poems
     When I type in a poem with formatting
     Then it appears on the site with formatting
 
-  @wip
   Scenario: create a new poem which includes html tags
     Given that I'm on the new poem page
     When I type in a poem with html
