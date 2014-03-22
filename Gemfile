@@ -13,4 +13,5 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'shoulda'
+  gem 'jazz_hands'
 end
