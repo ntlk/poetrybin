@@ -9,7 +9,7 @@ Given(/^some poems exist$/) do
 end
 
 Then(/^I see one of the poems$/) do
-  poem = Poem.find_by_title(find('.title').text)
+  poem = Poem.find_by_title(find('.poem__title').text)
   expect_page_to_have_poem(poem)
 end
 
