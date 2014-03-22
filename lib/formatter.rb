@@ -16,6 +16,7 @@ class Formatter
 
   def insert_strong_tags
     @string = @string.gsub(/\s(\*{2}\b)([^*]*)(\b\*{2})\s/, ' <strong>\2</strong> ')
+    string.gsub(/\*{2}(.+?)\*{2}/, '<strong>\1</strong>')
   end
 
   private
