@@ -9,7 +9,7 @@ class Formatter
   end
 
   def self.insert_strong_tags(string)
-    string.gsub(/\*{2}(.+?)\*{2}/, '<strong>\1</strong>')
+    string.gsub(/\*{2}([^*\s].*?)\*{2}/, '<strong>\1</strong>')
   end
 
   private
