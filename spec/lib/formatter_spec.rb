@@ -130,4 +130,21 @@ describe Formatter do
     end
 
   end
+
+  context 'changing text sizes' do
+    it 'returns same string if hash is not at the beginning of line' do
+      string = 'hi, # hello'
+      expect(Formatter.change_text_sizes(string)).to eq string
+    end
+
+    it 'resizes the line when # is present' do
+      string = '#hello'
+      expect(Formatter.change_text_sizes(string)).to eq '<span class="size-one">hello</span>'
+    end
+
+    it 'resizes the line when #\s is present' do
+      string = '# hello'
+      expect(Formatter.change_text_sizes(string)).to eq '<span class="size-one">hello</span>'
+    end
+  end
 end
