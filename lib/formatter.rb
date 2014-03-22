@@ -11,19 +11,17 @@ class Formatter
   end
 
   def insert_line_breaks
-    @string.gsub!(/\n/, '<br>')
-    return @string
+    @string = @string.gsub(/\n/, '<br>')
   end
 
   def insert_strong_tags
-    @string.gsub!(/\s(\*{2}\b)([^*]*)(\b\*{2})\s/, ' <strong>\2</strong> ')
-    return @string
+    @string = @string.gsub(/\s(\*{2}\b)([^*]*)(\b\*{2})\s/, ' <strong>\2</strong> ')
   end
 
   private
 
   def escape_ampersands
-    @string.gsub!('&', '&amp;')
+    @string = @string.gsub('&', '&amp;')
   end
 
   def escape_angle_brackets
@@ -32,11 +30,11 @@ class Formatter
   end
 
   def escape_left_angle_bracket
-    @string.gsub!('<', '&lt;')
+    @string = @string.gsub('<', '&lt;')
   end
 
   def escape_right_angle_bracket
-    @string.gsub!('>', '&gt;')
+    @string = @string.gsub('>', '&gt;')
   end
 
 end
