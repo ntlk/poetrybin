@@ -12,7 +12,7 @@ class Formatter
   end
 
   def self.change_text_sizes(string)
-    string.gsub(/^#\s?(.+$)/, '<span class="size-one">\1</span>')
+    format_largest_size(string)
   end
 
   def self.insert_line_breaks(string)
@@ -45,4 +45,7 @@ class Formatter
     string.gsub('>', '&gt;')
   end
 
+  def self.format_largest_size(string)
+    string.gsub(/^#\s?(.+$)/, '<span class="size-one">\1</span>')
+  end
 end
