@@ -2,9 +2,10 @@ module Formatter
 
   def self.format(string)
     string = escape_html(string)
+    string = change_text_sizes(string)
     string = insert_line_breaks(string)
     string = insert_strong_tags(string)
-    string = insert_em_tags(string)
+    insert_em_tags(string)
   end
 
   def self.escape_html(string)
@@ -12,6 +13,7 @@ module Formatter
   end
 
   def self.change_text_sizes(string)
+    string = format_large_size(string)
     format_largest_size(string)
   end
 
@@ -45,7 +47,11 @@ module Formatter
     string.gsub('>', '&gt;')
   end
 
+  def self.format_large_size(string)
+    string.gsub(/^##(?!#)\s?(.+$)/, '<span class="size-two">\1</span>')
+  end
+
   def self.format_largest_size(string)
-    string.gsub(/^#\s?(.+$)/, '<span class="size-one">\1</span>')
+    string.gsub(/^#(?!#)\s?(.+$)/, '<span class="size-one">\1</span>')
   end
 end
