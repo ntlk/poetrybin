@@ -1,41 +1,33 @@
 class Formatter
 
-  def initialize(string)
-    @string = string
+  def self.escape_html(string)
+    escape_angle_brackets(escape_ampersands(string))
   end
 
-  def escape_html
-    escape_ampersands
-    escape_angle_brackets
-    return @string
+  def self.insert_line_breaks(string)
+    string.gsub(/\n/, '<br>')
   end
 
-  def insert_line_breaks
-    @string = @string.gsub(/\n/, '<br>')
-  end
-
-  def insert_strong_tags
-    @string = @string.gsub(/\s(\*{2}\b)([^*]*)(\b\*{2})\s/, ' <strong>\2</strong> ')
+  def self.insert_strong_tags(string)
     string.gsub(/\*{2}(.+?)\*{2}/, '<strong>\1</strong>')
   end
 
   private
 
-  def escape_ampersands
-    @string = @string.gsub('&', '&amp;')
+  def self.escape_ampersands(string)
+    string.gsub('&', '&amp;')
   end
 
-  def escape_angle_brackets
-    escape_left_angle_bracket
-    escape_right_angle_bracket
+  def self.escape_angle_brackets(string)
+    escape_left_angle_bracket(escape_right_angle_bracket(string))
   end
 
-  def escape_left_angle_bracket
-    @string = @string.gsub('<', '&lt;')
+  def self.escape_left_angle_bracket(string)
+    string.gsub('<', '&lt;')
   end
 
-  def escape_right_angle_bracket
-    @string = @string.gsub('>', '&gt;')
+  def self.escape_right_angle_bracket(string)
+    string.gsub('>', '&gt;')
   end
 
 end
