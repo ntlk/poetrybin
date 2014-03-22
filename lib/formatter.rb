@@ -11,6 +11,10 @@ class Formatter
     escape_angle_brackets(escape_ampersands(string))
   end
 
+  def self.change_text_sizes(string)
+    string.gsub(/^#\s?(.+$)/, '<span class="size-one">\1</span>')
+  end
+
   def self.insert_line_breaks(string)
     string.gsub(/\n/, '<br>')
   end
