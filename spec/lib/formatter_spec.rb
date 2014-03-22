@@ -82,6 +82,47 @@ describe Formatter do
       expect(Formatter.insert_strong_tags(string)).to eq '<strong>A</strong> <strong>well for</strong>matted <strong>string</strong>'
     end
 
+    it 'should wrap strong tags around words and not include whitespaces' do
+      string = '**A** string with so**me emphasis** and also **** and at the **end**'
+      expect(Formatter.insert_strong_tags(string)).to eq '<strong>A</strong> string with so<strong>me emphasis</strong> and also **** and at the <strong>end</strong>'
+    end
   end
 
+  context 'italicised text' do
+    it 'should not add em tags in a plain string' do
+      string = 'Just a plain string'
+      expect(Formatter.insert_em_tags(string)).to eq string
+    end
+
+    it 'should not add em tags if there is only one asterisk' do
+      string = 'A string with an * in it'
+      expect(Formatter.insert_em_tags(string)).to eq string
+    end
+
+    it 'should not add em tags if there are only two asterisks' do
+      string = 'A string with ** in it'
+      expect(Formatter.insert_em_tags(string)).to eq string
+    end
+
+    it 'should not add em tags if there is no word inside double asterisks' do
+      string = 'A string with a **** in it'
+      expect(Formatter.insert_em_tags(string)).to eq string
+    end
+
+    it 'should wrap in em tags text surrounded by double asterisks' do
+      string = 'A *well formatted* string'
+      expect(Formatter.insert_em_tags(string)).to eq 'A <em>well formatted</em> string'
+    end
+
+    it 'should wrap em tags around words and not include whitespaces' do
+      string = '*A* string with so*me emphasis* and also **** and at the *end*'
+      expect(Formatter.insert_em_tags(string)).to eq '<em>A</em> string with so<em>me emphasis</em> and also **** and at the <em>end</em>'
+    end
+
+    it 'should deal with multiple matches' do
+      string = '*A* *well for*matted *string*'
+      expect(Formatter.insert_em_tags(string)).to eq '<em>A</em> <em>well for</em>matted <em>string</em>'
+    end
+
+  end
 end

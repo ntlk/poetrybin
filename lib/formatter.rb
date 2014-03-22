@@ -12,6 +12,10 @@ class Formatter
     string.gsub(/\*{2}([^*\s].*?)\*{2}/, '<strong>\1</strong>')
   end
 
+  def self.insert_em_tags(string)
+    string.gsub(/\*{1}([^*\s].*?)\*{1}/, '<em>\1</em>')
+  end
+
   private
 
   def self.escape_ampersands(string)
