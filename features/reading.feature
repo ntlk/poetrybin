@@ -19,6 +19,11 @@ Feature: reading poems
     Then I see a list of all poems
       And they're arranged chronologically
 
+  Scenario: see a list of poems some of which don't have titles
+    Given some poems without titles exist
+    When I go to the poems list
+    Then I see a list of all poems
+
   Scenario: read a specific poem
     Given a poem exists
     When I go straight to poem's individual page
