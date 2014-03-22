@@ -20,7 +20,7 @@ module Formatter
   end
 
   def self.insert_line_breaks(string)
-    string.gsub(/\n/, '<br>')
+    string.gsub(/\r?\n/, '<br>')
   end
 
   def self.insert_strong_tags(string)
