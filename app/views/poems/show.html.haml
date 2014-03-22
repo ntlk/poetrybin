@@ -1,4 +1,5 @@
 - if @poem
-  .title= @poem.title
-  = @poem.body
-  = @poem.created_at
+  .poem
+    .poem__title= @poem.title
+    .poem__body= Formatter.format(@poem.body)
+    = @poem.created_at
