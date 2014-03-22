@@ -14,6 +14,7 @@ module Formatter
   end
 
   def self.change_text_sizes(string)
+    string = strip_carriage_returns(string)
     string = format_small_size(string)
     string = format_medium_size(string)
     string = format_large_size(string)
@@ -52,19 +53,19 @@ module Formatter
   end
 
   def self.format_small_size(string)
-    string.gsub(/^####(?!#)\s?(.+?)(?=\r?\n|$)/, '<span class="size-small">\1</span>')
+    string.gsub(/^####(?!#)\s?(.+)$/, '<span class="size-small">\1</span>')
   end
 
   def self.format_medium_size(string)
-    string.gsub(/^###(?!#)\s?(.+?)(?=\r?\n|$)/, '<span class="size-medium">\1</span>')
+    string.gsub(/^###(?!#)\s?(.+)$/, '<span class="size-medium">\1</span>')
   end
 
   def self.format_large_size(string)
-    string.gsub(/^##(?!#)\s?(.+?)(?=\r?\n|$)/, '<span class="size-large">\1</span>')
+    string.gsub(/^##(?!#)\s?(.+)$/, '<span class="size-large">\1</span>')
   end
 
   def self.format_largest_size(string)
-    string.gsub(/^#(?!#)\s?(.+?)(?=\r?\n|$)/, '<span class="size-largest">\1</span>')
+    string.gsub(/^#(?!#)\s?(.+)$/, '<span class="size-largest">\1</span>')
   end
 
   def self.strip_carriage_returns(string)
