@@ -146,5 +146,11 @@ describe Formatter do
       string = '# hello'
       expect(Formatter.change_text_sizes(string)).to eq '<span class="size-one">hello</span>'
     end
+
+    it 'resizes the # line when multiple lines are present' do
+      string = "hello\n#hello\nhi there"
+      expect(Formatter.change_text_sizes(string)).to eq "hello\n<span class=\"size-one\">hello</span>\nhi there"
+
+    end
   end
 end
