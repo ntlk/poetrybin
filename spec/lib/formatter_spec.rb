@@ -67,7 +67,7 @@ describe Formatter do
       expect(Formatter.insert_strong_tags(string)).to eq string
     end
 
-    it 'should not add string tags if there is no word inside asterisks' do
+    it 'should not add string tags if there is no word inside four asterisks' do
       string = 'A string with a **** in it'
       expect(Formatter.insert_strong_tags(string)).to eq string
     end
@@ -109,7 +109,7 @@ describe Formatter do
       expect(Formatter.insert_em_tags(string)).to eq string
     end
 
-    it 'should not add em tags if there is no word inside double asterisks' do
+    it 'should not add em tags if there is no word inside four asterisks' do
       string = 'A string with a **** in it'
       expect(Formatter.insert_em_tags(string)).to eq string
     end
@@ -141,17 +141,17 @@ describe Formatter do
 
       it 'resizes the line when # is present' do
         string = '#hello'
-        expect(Formatter.change_text_sizes(string)).to eq '<span class="size-one">hello</span>'
+        expect(Formatter.change_text_sizes(string)).to eq '<span class="size-largest">hello</span>'
       end
 
       it 'resizes the line when #\s is present' do
         string = '# hello'
-        expect(Formatter.change_text_sizes(string)).to eq '<span class="size-one">hello</span>'
+        expect(Formatter.change_text_sizes(string)).to eq '<span class="size-largest">hello</span>'
       end
 
       it 'resizes the # line when multiple lines are present' do
         string = "hello\n#hello\nhi there"
-        expect(Formatter.change_text_sizes(string)).to eq "hello\n<span class=\"size-one\">hello</span>\nhi there"
+        expect(Formatter.change_text_sizes(string)).to eq "hello\n<span class=\"size-largest\">hello</span>\nhi there"
       end
     end
 
@@ -163,17 +163,17 @@ describe Formatter do
 
       it 'resizes the line when ## is present' do
         string = '##hello'
-        expect(Formatter.change_text_sizes(string)).to eq '<span class="size-two">hello</span>'
+        expect(Formatter.change_text_sizes(string)).to eq '<span class="size-large">hello</span>'
       end
 
       it 'resizes the line when ##\s is present' do
         string = '## hello'
-        expect(Formatter.change_text_sizes(string)).to eq '<span class="size-two">hello</span>'
+        expect(Formatter.change_text_sizes(string)).to eq '<span class="size-large">hello</span>'
       end
 
       it 'resizes the ## line when multiple lines are present' do
         string = "hello\n##hello\nhi there"
-        expect(Formatter.change_text_sizes(string)).to eq "hello\n<span class=\"size-two\">hello</span>\nhi there"
+        expect(Formatter.change_text_sizes(string)).to eq "hello\n<span class=\"size-large\">hello</span>\nhi there"
       end
     end
 
@@ -185,17 +185,17 @@ describe Formatter do
 
       it 'resizes the line when ### is present' do
         string = '###hello'
-        expect(Formatter.change_text_sizes(string)).to eq '<span class="size-three">hello</span>'
+        expect(Formatter.change_text_sizes(string)).to eq '<span class="size-medium">hello</span>'
       end
 
       it 'resizes the line when ###\s is present' do
         string = '### hello'
-        expect(Formatter.change_text_sizes(string)).to eq '<span class="size-three">hello</span>'
+        expect(Formatter.change_text_sizes(string)).to eq '<span class="size-medium">hello</span>'
       end
 
       it 'resizes the ### line when multiple lines are present' do
         string = "hello\n###hello\nhi there"
-        expect(Formatter.change_text_sizes(string)).to eq "hello\n<span class=\"size-three\">hello</span>\nhi there"
+        expect(Formatter.change_text_sizes(string)).to eq "hello\n<span class=\"size-medium\">hello</span>\nhi there"
       end
     end
 
@@ -207,17 +207,17 @@ describe Formatter do
 
       it 'resizes the line when #### is present' do
         string = '####hello'
-        expect(Formatter.change_text_sizes(string)).to eq '<span class="size-four">hello</span>'
+        expect(Formatter.change_text_sizes(string)).to eq '<span class="size-small">hello</span>'
       end
 
       it 'resizes the line when ####\s is present' do
         string = '#### hello'
-        expect(Formatter.change_text_sizes(string)).to eq '<span class="size-four">hello</span>'
+        expect(Formatter.change_text_sizes(string)).to eq '<span class="size-small">hello</span>'
       end
 
       it 'resizes the #### line when multiple lines are present' do
         string = "hello\n####hello\nhi there"
-        expect(Formatter.change_text_sizes(string)).to eq "hello\n<span class=\"size-four\">hello</span>\nhi there"
+        expect(Formatter.change_text_sizes(string)).to eq "hello\n<span class=\"size-small\">hello</span>\nhi there"
       end
     end
   end
