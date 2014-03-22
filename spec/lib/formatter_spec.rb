@@ -7,6 +7,12 @@ describe Formatter do
     expect(Formatter.format(string)).to eq 'Some poem body<br>with some formatting<br><strong>bold</strong> text<br><em>italics</em><br><span class="size-largest">and font</span><br><span class="size-large">sizes</span><br><span class="size-medium">sizes</span><br><span class="size-small">sizes</span>'
   end
 
+  it 'formats a string with Windows new lines and formatting' do
+    string = "Some poem body\r\nwith some formatting\r\n**bold** text\r\n*italics*\r\n# and font\r\n## sizes\r\n### sizes\r\n#### sizes"
+    expect(Formatter.format(string)).to eq 'Some poem body<br>with some formatting<br><strong>bold</strong> text<br><em>italics</em><br><span class="size-largest">and font</span><br><span class="size-large">sizes</span><br><span class="size-medium">sizes</span><br><span class="size-small">sizes</span>'
+  end
+
+
   context 'escaping html' do
     it 'should not change a plain string' do
       string = 'This is a simple string'
