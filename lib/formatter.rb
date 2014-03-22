@@ -1,6 +1,7 @@
 module Formatter
 
   def self.format(string)
+    string = strip_carriage_returns(string)
     string = escape_html(string)
     string = change_text_sizes(string)
     string = insert_line_breaks(string)
@@ -63,5 +64,9 @@ module Formatter
 
   def self.format_largest_size(string)
     string.gsub(/^#(?!#)\s?(.+?)(?=\r?\n|$)/, '<span class="size-largest">\1</span>')
+  end
+
+  def self.strip_carriage_returns(string)
+    string.gsub(/\r\n/, "\n")
   end
 end
