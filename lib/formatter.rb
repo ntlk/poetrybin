@@ -50,18 +50,18 @@ module Formatter
   end
 
   def self.format_small_size(string)
-    string.gsub(/^####(?!#)\s?(.+$)/, '<span class="size-four">\1</span>')
+    string.gsub(/^####(?!#)\s?(.+$)/, '<span class="size-small">\1</span>')
   end
 
   def self.format_medium_size(string)
-    string.gsub(/^###(?!#)\s?(.+$)/, '<span class="size-three">\1</span>')
+    string.gsub(/^###(?!#)\s?(.+$)/, '<span class="size-medium">\1</span>')
   end
 
   def self.format_large_size(string)
-    string.gsub(/^##(?!#)\s?(.+$)/, '<span class="size-two">\1</span>')
+    string.gsub(/^##(?!#)\s?(.+$)/, '<span class="size-large">\1</span>')
   end
 
   def self.format_largest_size(string)
-    string.gsub(/^#(?!#)\s?(.+$)/, '<span class="size-one">\1</span>')
+    string.gsub(/^#(?!#)\s?(.+$)/, '<span class="size-largest">\1</span>')
   end
 end
