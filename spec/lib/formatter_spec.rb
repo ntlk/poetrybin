@@ -198,5 +198,27 @@ describe Formatter do
         expect(Formatter.change_text_sizes(string)).to eq "hello\n<span class=\"size-three\">hello</span>\nhi there"
       end
     end
+
+    context 'small size' do
+      it 'returns same string if hash is not at the beginning of line' do
+        string = 'hi, #### hello'
+        expect(Formatter.change_text_sizes(string)).to eq string
+      end
+
+      it 'resizes the line when #### is present' do
+        string = '####hello'
+        expect(Formatter.change_text_sizes(string)).to eq '<span class="size-four">hello</span>'
+      end
+
+      it 'resizes the line when ####\s is present' do
+        string = '#### hello'
+        expect(Formatter.change_text_sizes(string)).to eq '<span class="size-four">hello</span>'
+      end
+
+      it 'resizes the #### line when multiple lines are present' do
+        string = "hello\n####hello\nhi there"
+        expect(Formatter.change_text_sizes(string)).to eq "hello\n<span class=\"size-four\">hello</span>\nhi there"
+      end
+    end
   end
 end
