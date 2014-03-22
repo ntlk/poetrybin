@@ -49,6 +49,11 @@ describe Formatter do
       string = "An example\nwith a new line \n and another"
       expect(Formatter.insert_line_breaks(string)).to eq 'An example<br>with a new line <br> and another'
     end
+
+    it 'should insert line breaks if newline characters include carriage returns' do
+      string = "An example\r\nwith a new line \r\n and another"
+      expect(Formatter.insert_line_breaks(string)).to eq 'An example<br>with a new line <br> and another'
+    end
   end
 
   context 'bold text' do
