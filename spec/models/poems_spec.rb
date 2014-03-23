@@ -24,6 +24,11 @@ describe Poem do
         expect(poem.display_title).to eq 'an example poem body'
       end
 
+      it 'should return the first line of body as display title even if it includes carriage returns' do
+        poem = Poem.create(title: nil, body: "an example poem body\r\nwith a new line")
+        expect(poem.display_title).to eq 'an example poem body'
+      end
+
       it 'should return the first line of body as display title if title is an empty string' do
         poem = Poem.create(title: '', body: "an example poem body\nwith a new line")
         expect(poem.display_title).to eq 'an example poem body'
