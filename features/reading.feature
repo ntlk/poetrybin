@@ -19,6 +19,7 @@ Feature: reading poems
     Then I see a list of all poems
       And they're arranged chronologically
 
+  @wip
   Scenario: see a list of poems some of which don't have titles
     Given some poems without titles exist
     When I go to the poems list

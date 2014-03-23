@@ -18,6 +18,7 @@ Feature: writing poems
     When I type in a poem with html
     Then it appears on the site with html tags escaped
 
+  @wip
   Scenario: edit existing poem
     Given that I have created a poem in the last 15 minutes
     When I go to edit poem page
