@@ -15,6 +15,6 @@ group :test do
   gem 'shoulda'
 end
 
-group :debug do
+group :debug, :test do
   gem 'jazz_hands'
 end
