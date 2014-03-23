@@ -16,5 +16,6 @@ module Poetrybin
     config.autoload_paths += %W(#{config.root}/lib)
     config.i18n.default_locale = :en
     I18n.enforce_available_locales = false
+    config.serve_static_assets = true
   end
 end
