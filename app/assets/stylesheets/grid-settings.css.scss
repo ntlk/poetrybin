@@ -1,0 +1,8 @@
+@import 'neat-helpers';
+
+$column: 270px;
+$gutter: 40px;
+$grid-columns: 3;
+$max-width: em(900);
+
+$mobile: new-breakpoint(max-width 680px 1);
