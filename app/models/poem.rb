@@ -6,4 +6,13 @@ class Poem < ActiveRecord::Base
   def self.random
     order('RANDOM()').first
   end
+
+  def display_title
+    return title if !title.blank?
+    display_title = Formatter.strip_carriage_returns(body).scan(/^(.*?)\n/).flatten.first
+    if display_title.scan(/[\w-]+/).size > 5
+      display_title = "#{body.split(' ')[0...5].join(' ')}…"
+    end
+    display_title
+  end
 end
