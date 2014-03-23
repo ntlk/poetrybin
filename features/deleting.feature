@@ -11,12 +11,14 @@ Feature: deleting poems
     When I hide a poem
     Then the poem is removed from view
 
+  @wip
   Scenario: unhide poems
     Given that I am logged in as an admin
     When I select previously hidden poems
     Then they are unmarked as hidden
       And they are visible again
 
+  @wip
   Scenario: delete poems
     Given that poems have been marked as hidden
     When 7 days passed
