@@ -31,7 +31,7 @@ end
 
 Then(/^I see a list of all poems$/) do
   Poem.all.each do |poem|
-    expect(page).to have_link(poem.title, href: poem_path(poem))
+    expect(page).to have_link(poem.display_title, href: poem_path(poem))
     expect(page).to have_content(poem.created_at)
   end
 end
@@ -50,6 +50,11 @@ Given(/^some poems that include hidden ones exist$/) do
   Poem.create(title: 'Another poem', body: 'Text', created_at: Date.tomorrow)
   Poem.create(title: 'A poem', body: 'Violets are red', created_at: 10.minutes.ago, hidden: true)
   Poem.create(title: 'A poem two', body: 'Violets are blue', hidden: true)
+end
+
+Given(/^some poems without titles exist$/) do
+  Poem.create(title: '', body: 'some text or other')
+  Poem.create(title: nil, body: 'a longer text, which includes some punctuation and so on')
 end
 
 Then(/^I never see a hidden one$/) do
