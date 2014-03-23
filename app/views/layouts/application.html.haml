@@ -1,25 +1,27 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Poetrybin</title>
-  <%= stylesheet_link_tag    "application", media: "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+!!!
+%html
+  %head
+    %title Poetrybin
+    = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Inconsolata'
+    = stylesheet_link_tag :application
+    = csrf_meta_tag
 
-<%= yield %>
+    %meta{ name: 'description', content: 'Poetrybin is a place where you can post poems anonymously' }/
+    %meta{ name: 'keywords', content: 'poetrybin, poetry, poem, anonymous' }/
+    %meta{ name: 'author', content: '@ntlk, http://twitter.com/ntlk' }/
 
-<nav>
-  <ul>
-    <li><%= link_to 'See all poems', poems_path %></li>
-    <li><%= link_to 'Random', random_path %></li>
-    <li><%= link_to 'Add a poem', new_poem_path %></li>
-    <% if logged_in? %>
-      <li><%= button_to 'Logout', session_path, method: :delete %></li>
-    <% end %>
-  </ul>
-</nav>
 
-</body>
-</html>
+  %body
+
+    .main
+      .content
+        = yield
+      .sidebar
+        %header= link_to image_tag('poetrybin.png'), root_path
+        %nav
+          %ul
+            %li= link_to 'See all poems', poems_path
+            %li= link_to 'Random', random_path
+            %li= link_to 'Add a poem', new_poem_path
+            - if logged_in?
+              %li= button_to 'Logout', session_path, method: :delete
