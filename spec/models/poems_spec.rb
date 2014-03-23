@@ -14,6 +14,11 @@ describe Poem do
     end
 
     context 'without title' do
+      it 'should return the body if it is only one line' do
+        poem = Poem.create(title: nil, body: "an example poem body")
+        expect(poem.display_title).to eq 'an example poem body'
+      end
+
       it 'should return the first line of body as display title' do
         poem = Poem.create(title: nil, body: "an example poem body\nwith a new line")
         expect(poem.display_title).to eq 'an example poem body'
