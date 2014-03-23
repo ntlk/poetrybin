@@ -13,8 +13,5 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'shoulda'
-end
-
-group :debug, :test do
-  gem 'jazz_hands'
+  gem 'jazz_hands' unless ENV['CI']
 end
