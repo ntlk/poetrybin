@@ -1,6 +1,6 @@
 - @poems.each do |poem|
   .poem-list__item
     %time.poem-list__date= poem.created_at
-    .poem-list__link= link_to poem.title, poem_path(poem)
+    .poem-list__link= link_to poem.display_title, poem_path(poem)
     - if logged_in?
       = button_to 'Hide', hide_poem_path(poem), method: :put
