@@ -1,0 +1,47 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background: #C1BFBC url(/assets/bg.png) repeat;
+  color: #333;
+  font-family: Inconsolata, Monaco, Droid Mono, Lucida Console, monospace;
+  font-size: 90%;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+a:hover, a:active {
+  border-bottom: 1px solid #fdfdfd;
+}
+
+img {
+  max-width: 100%;
+}
+
+.main {
+  margin-top: 2em;
+  @include outer-container;
+}
+
+.content {
+  @include span-columns(2);
+  @include media($mobile) {
+    @include span-columns(3);
+  }
+}
+
+.sidebar {
+  @include span-columns(1);
+  @include media($mobile) {
+    @include span-columns(3);
+  }
+}
+
+
+
+
