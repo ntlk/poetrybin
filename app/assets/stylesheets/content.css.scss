@@ -5,3 +5,46 @@
   padding: 2em;
 }
 
+label {
+  display: block;
+  font-weight: normal;
+  font-size: 0.875em;
+}
+
+input, textarea {
+  font-family: monospace;
+  font-size: 0.75em;
+  border: 1px solid #ccc;
+  padding: 6px 4px;
+  outline: none;
+  border-radius: 2px;
+  font-size: 0.875em;
+  width: 300px;
+  max-width: 100%;
+  display: block;
+  margin-bottom: 20px;
+  background: #fdfdfd;
+}
+
+input[type=submit] {
+  width: 90px;
+  font-family: inherit;
+  font-size: 0.875em;
+  background: #eee;
+  border: 1px solid #aaa;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  padding: 4px 12px;
+  border-radius: 3px;
+  color: #444;
+  display: inline-block;
+  text-decoration: none;
+  text-shadow: 0 1px rgba(255,255,255,0.75);
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+textarea {
+  min-height: 180px;
+}
+
