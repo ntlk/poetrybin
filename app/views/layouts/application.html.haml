@@ -25,3 +25,4 @@
             %li= link_to 'Add a poem', new_poem_path
             - if logged_in?
               %li= button_to 'Logout', session_path, method: :delete
+            %li.what= link_to 'What is this?', about_path
