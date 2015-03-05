@@ -26,3 +26,10 @@ Then(/^I can create a new poem$/) do
   expect(page).to have_link('A cat')
 end
 
+When(/^I click what is this link$/) do
+  click_on('What is this?')
+end
+
+Then(/^I can see the about page$/) do
+  expect(page).to have_content('Poetrybin is a project inspired by')
+end

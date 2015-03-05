@@ -20,3 +20,8 @@ Feature: exploring the site
     Given I am currently on any page
     When I click on new poem link
     Then I can create a new poem
+
+  Scenario: finding out what Poetrybin is
+    Given I am currently on any page
+    When I click what is this link
+    Then I can see the about page
